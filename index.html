@@ -1,0 +1,3072 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Txgidocs -Chatbot </title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="dist/jquery.convform.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="demo.css">
+</head>
+
+<body>
+	<section id="demo">
+		<div class="vertical-align">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3 col-xs-offset-0">
+						<div class="card no-border">
+							<div id="chat" class="conv-form-wrapper">
+								<form action="" method="GET" class="hidden">
+									<select name="programmer" data-callback="storeState"
+										data-conv-question="Hello! How can I help you?" name="first-question">
+										<option value="yes">Appointment</option>
+										<option value="no">Providers</option>
+										<option value="services">Our services</option>
+										<option value="Diseases">Diseases and Disorders</option>
+									</select>
+									<div data-conv-fork="programmer">
+										<div data-conv-case="yes">
+											<select name="thought"
+												data-conv-question="Please selects the doctors Name to proceed">
+												<!-- this below for appointment  -->
+												<option data-callback="HAMZA">HAMZA AZIZ </option>
+												<option value="CONNIE" data-callback="CONNIE">CONNIE DELOS REYES
+												</option>
+												<option value="KATHRYN" data-callback="KATHRYN">KATHRYN BYCURA</option>
+												<option value="HOWARD" data-callback="HOWARD">HOWARD HAMAT</option>
+												<option value="GURU" data-callback="GURU">GURU N. REDDY</option>
+												<option value="MOHAMED" data-callback="MOHAMED">MOHAMED MAHMOUD</option>
+												<option value="LAURA" data-callback="LAURA">LAURA PETERKIN</option>
+											</select>
+										</div>
+										<div data-conv-case="no">
+											<select name="thought"
+												data-conv-question="Have you ever thought about learning? Programming is fun!">
+												<!-- this is for providers -->
+												<option data-callback="HAMAT" value="HAMZA AZIZ"> HOWARD HAMAT | MD,
+													Gastroenterology</option>
+												<option value="MAHMOUD" data-callback="MAHMOUD">MOHAMED MAHMOUD | M.D,
+													Gastroenterology</option>
+												<option value="DELOS" data-callback="DELOS">CONNIE DELOS REYES | Nurse
+													Practitioner, Nurse Practitioner-Family</option>
+												<option value="AZIZ" data-callback="AZIZ">HAMZA AZIZ MD,
+													Gastroenterology</option>
+												<option value="BYCURA" data-callback="BYCURA">KATHRYN BYCURA | FNP-BC,
+													Nurse Practitioner-Family</option>
+												<option value="PETERKIN" data-callback="PETERKIN">LAURA PETERKIN | PA-C,
+													Physician Assistant-Medical</option>
+												<option value="REDDY" data-callback="REDDY">GURU N. REDDY | MD, FACP,
+													FACG, FASGE, AGAF, Gastroenterology</option>
+											</select>
+										</div>
+										<div data-conv-case="Diseases">
+											<select name="thought" data-conv-question="">
+												<!-- this is for diseases and disorder -->
+												<option data-callback="COLORECTAL" value="HAMZA AZIZ">COLORECTAL CANCER
+												</option>
+												<option value="CONNIE" data-callback="IBS">IBS - IRRITABLE BOWEL
+													SYNDROME</option>
+												<option value="KATHRYN" data-callback="CROHN">CROHN'S DISEASE</option>
+												<option value="HOWARD" data-callback="LIVER">LIVER DISEASES</option>
+												<option value="GURU" data-callback="GERD">GERD - GASTROESOPHAGEAL REFLUX
+													DISEASE</option>
+												<option value="LAURA" data-callback="WOMEN">WOMEN'S GI</option>
+											</select>
+										</div>
+										<!-- this is for Our services -->
+										<div data-conv-case="services">
+											<select data-conv-question="">
+												<option value="Our" data-callback="Our">Our services</option>
+												<option value="copy" data-callback="copy">Colonoscopy</option>
+												<option value="EGD" data-callback="EGD"> EGD - Upper Endoscopy</option>
+												<option value="Flex" data-callback="Flex">Flexible Sigmoidoscopy - Flex
+													Sig</option>
+												<option value="ERCP" data-callback="ERCP">ERCP & all associated
+													procedures</option>
+												<option value="Biopsy" data-callback="Biopsy">Liver Biopsy (Ultrasound
+													guided)</option>
+												<option value="FNA" data-callback="FNA">EUS with FNA</option>
+												<option value="Hemorrhoid" data-callback="Hemorrhoid">Hemorrhoid Banding
+												</option>
+												<option value="Capsule" data-callback="Capsule">Capsule Endoscopy 
+												</option>
+												<option value="BRAVO" data-callback="BRAVO">PH Monitoring - BRAVO Study
+												</option>
+												<option value="Breath" data-callback="Breath">Breath Testing</option>
+												<option value="REMICADE" data-callback="REMICADE">REMICADE - INFLIXIMAB
+												</option>
+												<option value="SCAN" data-callback="SCAN">FIBROSCAN</option>
+												<option value="Studies" data-callback="Studies">Ultrasound Studies
+												</option>
+												<option value="COLON" data-callback="COLON">COLON POLYPS</option>
+												<option value="DISEASE" data-callback="DISEASE">CROHN’S DISEASE</option>
+												<option value="Colitis" data-callback="Colitis">Ulcerative Colitis
+												</option>
+												<option value="HEPA" data-callback="HEPA">HEPATITIS C</option>
+												<option value="AND" data-callback="AND">ALCOHOL AND LIVER DISEASE
+												</option>
+												<option value="hosis" data-callback="hosis">Liver Cirrhosis</option>
+												<option value="GI" data-callback="GI">GI Cancers</option>
+												<option value="ESOPHAGUS" data-callback="ESOPHAGUS">BARRETT’S ESOPHAGUS
+												</option>
+												<option value="CONSTIPATION" data-callback="CONSTIPATION">CONSTIPATION
+												</option>
+												<option value="DIARRHEA" data-callback="DIARRHEA">DIARRHEA</option>
+												<option value="OBESITY" data-callback="OBESITY">OBESITY</option>
+												<option data-callback="FATTY" value="FATTY">FATTY LIVER (NAFLD)
+												</option>
+												<option value="Fissures" data-callback="Fissures">Hemorrhoids and
+													Fissures</option>
+												<option value="INCONTINENCE" data-callback="INCONTINENCE">FECAL
+													INCONTINENCE IN ADULTS</option>
+												<option value="ABDOMINAL" data-callback="ABDOMINAL">ABDOMINAL PAIN
+												</option>
+												<option value="STONES" data-callback="STONES">GALL STONES</option>
+												<option value="Pancreatic" data-callback="Pancreatic">Pancreatic
+													Diseases</option>
+												<option value="Stomach" data-callback="Stomach">Stomach / Peptic ulcers
+												</option>
+												<option data-callback="bacteria" value="bacteria">Gut bacteria</option>
+												<option value="SWALLOWING" data-callback="SWALLOWING">SWALLOWING
+													DISORDERS</option>
+												<option value="TUMORS" data-callback="TUMORS">LIVER TUMORS</option>
+												<option value="CANCER" data-callback="CANCER">COLON CANCER</option>
+											</select>
+										<!-- this is for Our services -->
+										<div data-conv-case="services">
+											<select data-conv-question="Our services">
+																						<option value="Our" data-callback="Our">Our services</option>
+																						<option value="copy" data-callback="copy">Colonoscopy</option>
+																						<option value="EGD" data-callback="EGD"> EGD - Upper Endoscopy</option>
+																						<option value="Flex" data-callback="Flex">Flexible Sigmoidoscopy - Flex
+																							Sig</option>
+																						<option value="ERCP" data-callback="ERCP">ERCP & all associated
+																							procedures</option>
+																						<option value="Biopsy" data-callback="Biopsy">Liver Biopsy (Ultrasound
+																							guided)</option>
+																						<option value="FNA" data-callback="FNA">EUS with FNA</option>
+																						<option value="Hemorrhoid" data-callback="Hemorrhoid">Hemorrhoid Banding
+																						</option>
+																						<option value="Capsule" data-callback="Capsule">Capsule Endoscopy 
+																						</option>
+																						<option value="BRAVO" data-callback="BRAVO">PH Monitoring - BRAVO Study
+																						</option>
+																						<option value="Breath" data-callback="Breath">Breath Testing</option>
+																						<option value="REMICADE" data-callback="REMICADE">REMICADE - INFLIXIMAB
+																						</option>
+																						<option value="SCAN" data-callback="SCAN">FIBROSCAN</option>
+																						<option value="Studies" data-callback="Studies">Ultrasound Studies
+																						</option>
+																						<option value="COLON" data-callback="COLON">COLON POLYPS</option>
+																						<option value="DISEASE" data-callback="DISEASE">CROHN’S DISEASE</option>
+																						<option value="Colitis" data-callback="Colitis">Ulcerative Colitis
+																						</option>
+																						<option value="HEPA" data-callback="HEPA">HEPATITIS C</option>
+																						<option value="AND" data-callback="AND">ALCOHOL AND LIVER DISEASE
+																						</option>
+																						<option value="hosis" data-callback="hosis">Liver Cirrhosis</option>
+																						<option value="GI" data-callback="GI">GI Cancers</option>
+																						<option value="ESOPHAGUS" data-callback="ESOPHAGUS">BARRETT’S ESOPHAGUS
+																						</option>
+																						<option value="CONSTIPATION" data-callback="CONSTIPATION">CONSTIPATION
+																						</option>
+																						<option value="DIARRHEA" data-callback="DIARRHEA">DIARRHEA</option>
+																						<option value="OBESITY" data-callback="OBESITY">OBESITY</option>
+																						<option data-callback="FATTY" value="FATTY">FATTY LIVER (NAFLD)
+																						</option>
+																						<option value="Fissures" data-callback="Fissures">Hemorrhoids and
+																							Fissures</option>
+																						<option value="INCONTINENCE" data-callback="INCONTINENCE">FECAL
+																							INCONTINENCE IN ADULTS</option>
+																						<option value="ABDOMINAL" data-callback="ABDOMINAL">ABDOMINAL PAIN
+																						</option>
+																						<option value="STONES" data-callback="STONES">GALL STONES</option>
+																						<option value="Pancreatic" data-callback="Pancreatic">Pancreatic
+																							Diseases</option>
+																						<option value="Stomach" data-callback="Stomach">Stomach / Peptic ulcers
+																						</option>
+																						<option data-callback="bacteria" value="bacteria">Gut bacteria</option>
+																						<option value="SWALLOWING" data-callback="SWALLOWING">SWALLOWING
+																							DISORDERS</option>
+																						<option value="TUMORS" data-callback="TUMORS">LIVER TUMORS</option>
+																						<option value="CANCER" data-callback="CANCER">COLON CANCER</option>
+											</select>
+											<select name="programmer" data-callback="storeState"
+												data-conv-question="Hello! How can I help you?" name="first-question">
+												<option value="yes">Appointment</option>
+												<option value="no">Providers</option>
+												<option value="services">Our services</option>
+												<option value="Diseases">Diseases and Disorders</option>
+											</select>
+											<div data-conv-fork="programmer">
+												<div data-conv-case="yes">
+													<select name="thought"
+														data-conv-question="Please selects the doctors Name to proceed">
+														<!-- this below for appointment  -->
+														<option data-callback="HAMZA">HAMZA AZIZ </option>
+														<option value="CONNIE" data-callback="CONNIE">CONNIE DELOS REYES
+														</option>
+														<option value="KATHRYN" data-callback="KATHRYN">KATHRYN BYCURA
+														</option>
+														<option value="HOWARD" data-callback="HOWARD">HOWARD HAMAT
+														</option>
+														<option value="GURU" data-callback="GURU">GURU N. REDDY</option>
+														<option value="MOHAMED" data-callback="MOHAMED">MOHAMED MAHMOUD
+														</option>
+														<option value="LAURA" data-callback="LAURA">LAURA PETERKIN
+														</option>
+													</select>
+												</div>
+												<div data-conv-case="no">
+													<select name="thought"
+														data-conv-question="Have you ever thought about learning? Programming is fun!">
+														<!-- this is for providers -->
+														<option data-callback="HAMAT" value="HAMZA AZIZ"> HOWARD HAMAT |
+															MD, Gastroenterology</option>
+														<option value="MAHMOUD" data-callback="MAHMOUD">MOHAMED MAHMOUD
+															| M.D, Gastroenterology</option>
+														<option value="DELOS" data-callback="DELOS">CONNIE DELOS REYES |
+															Nurse Practitioner, Nurse Practitioner-Family</option>
+														<option value="AZIZ" data-callback="AZIZ">HAMZA AZIZ MD,
+															Gastroenterology</option>
+														<option value="BYCURA" data-callback="BYCURA">KATHRYN BYCURA |
+															FNP-BC, Nurse Practitioner-Family</option>
+														<option value="PETERKIN" data-callback="PETERKIN">LAURA PETERKIN
+															| PA-C, Physician Assistant-Medical</option>
+														<option value="REDDY" data-callback="REDDY">GURU N. REDDY | MD,
+															FACP, FACG, FASGE, AGAF, Gastroenterology</option>
+													</select>
+												</div>
+												<div data-conv-case="Diseases">
+													<select name="thought" data-conv-question="">
+														<!-- this is for diseases and disorder -->
+														<option data-callback="COLORECTAL" value="HAMZA AZIZ">COLORECTAL
+															CANCER</option>
+														<option value="CONNIE" data-callback="IBS">IBS - IRRITABLE BOWEL
+															SYNDROME</option>
+														<option value="KATHRYN" data-callback="CROHN">CROHN'S DISEASE
+														</option>
+														<option value="HOWARD" data-callback="LIVER">LIVER DISEASES
+														</option>
+														<option value="GURU" data-callback="GERD">GERD -
+															GASTROESOPHAGEAL REFLUX DISEASE</option>
+														<option value="LAURA" data-callback="WOMEN">WOMEN'S GI</option>
+													</select>
+												</div>
+												<!-- this is for Our services -->
+												<div data-conv-case="services">
+													<select data-conv-question="Our services">
+														<option value="Our" data-callback="Our">Our services</option>
+														<option value="copy" data-callback="copy">Colonoscopy</option>
+														<option value="EGD" data-callback="EGD"> EGD - Upper Endoscopy
+														</option>
+														<option value="Flex" data-callback="Flex">Flexible Sigmoidoscopy
+															- Flex Sig</option>
+														<option value="ERCP" data-callback="ERCP">ERCP & all associated
+															procedures</option>
+														<option value="Biopsy" data-callback="Biopsy">Liver Biopsy
+															(Ultrasound guided)</option>
+														<option value="FNA" data-callback="FNA">EUS with FNA</option>
+														<option value="Hemorrhoid" data-callback="Hemorrhoid">Hemorrhoid
+															Banding</option>
+														<option value="Capsule" data-callback="Capsule">Capsule
+															Endoscopy </option>
+														<option value="BRAVO" data-callback="BRAVO">PH Monitoring -
+															BRAVO Study</option>
+														<option value="Breath" data-callback="Breath">Breath Testing
+														</option>
+														<option value="REMICADE" data-callback="REMICADE">REMICADE -
+															INFLIXIMAB</option>
+														<option value="SCAN" data-callback="SCAN">FIBROSCAN</option>
+														<option value="Studies" data-callback="Studies">Ultrasound
+															Studies</option>
+														<option value="COLON" data-callback="COLON">COLON POLYPS
+														</option>
+														<option value="DISEASE" data-callback="DISEASE">CROHN’S DISEASE
+														</option>
+														<option value="Colitis" data-callback="Colitis">Ulcerative
+															Colitis</option>
+														<option value="HEPA" data-callback="HEPA">HEPATITIS C</option>
+														<option value="AND" data-callback="AND">ALCOHOL AND LIVER
+															DISEASE</option>
+														<option value="hosis" data-callback="hosis">Liver Cirrhosis
+														</option>
+														<option value="GI" data-callback="GI">GI Cancers</option>
+														<option value="ESOPHAGUS" data-callback="ESOPHAGUS">BARRETT’S
+															ESOPHAGUS</option>
+														<option value="CONSTIPATION" data-callback="CONSTIPATION">
+															CONSTIPATION</option>
+														<option value="DIARRHEA" data-callback="DIARRHEA">DIARRHEA
+														</option>
+														<option value="OBESITY" data-callback="OBESITY">OBESITY</option>
+														<option data-callback="FATTY" value="FATTY">FATTY LIVER (NAFLD)
+														</option>
+														<option value="Fissures" data-callback="Fissures">Hemorrhoids
+															and Fissures</option>
+														<option value="INCONTINENCE" data-callback="INCONTINENCE">FECAL
+															INCONTINENCE IN ADULTS</option>
+														<option value="ABDOMINAL" data-callback="ABDOMINAL">ABDOMINAL
+															PAIN</option>
+														<option value="STONES" data-callback="STONES">GALL STONES
+														</option>
+														<option value="Pancreatic" data-callback="Pancreatic">Pancreatic
+															Diseases</option>
+														<option value="Stomach" data-callback="Stomach">Stomach / Peptic
+															ulcers</option>
+														<option data-callback="bacteria" value="bacteria">Gut bacteria
+														</option>
+														<option value="SWALLOWING" data-callback="SWALLOWING">SWALLOWING
+															DISORDERS</option>
+														<option value="TUMORS" data-callback="TUMORS">LIVER TUMORS
+														</option>
+														<option value="CANCER" data-callback="CANCER">COLON CANCER
+														</option>
+													</select>
+												<!-- this is for Our services -->
+												<div data-conv-case="services">
+													<select data-conv-question="Our services">
+																						<option value="Our" data-callback="Our">Our services</option>
+																						<option value="copy" data-callback="copy">Colonoscopy</option>
+																						<option value="EGD" data-callback="EGD"> EGD - Upper Endoscopy</option>
+																						<option value="Flex" data-callback="Flex">Flexible Sigmoidoscopy - Flex
+																							Sig</option>
+																						<option value="ERCP" data-callback="ERCP">ERCP & all associated
+																							procedures</option>
+																						<option value="Biopsy" data-callback="Biopsy">Liver Biopsy (Ultrasound
+																							guided)</option>
+																						<option value="FNA" data-callback="FNA">EUS with FNA</option>
+																						<option value="Hemorrhoid" data-callback="Hemorrhoid">Hemorrhoid Banding
+																						</option>
+																						<option value="Capsule" data-callback="Capsule">Capsule Endoscopy 
+																						</option>
+																						<option value="BRAVO" data-callback="BRAVO">PH Monitoring - BRAVO Study
+																						</option>
+																						<option value="Breath" data-callback="Breath">Breath Testing</option>
+																						<option value="REMICADE" data-callback="REMICADE">REMICADE - INFLIXIMAB
+																						</option>
+																						<option value="SCAN" data-callback="SCAN">FIBROSCAN</option>
+																						<option value="Studies" data-callback="Studies">Ultrasound Studies
+																						</option>
+																						<option value="COLON" data-callback="COLON">COLON POLYPS</option>
+																						<option value="DISEASE" data-callback="DISEASE">CROHN’S DISEASE</option>
+																						<option value="Colitis" data-callback="Colitis">Ulcerative Colitis
+																						</option>
+																						<option value="HEPA" data-callback="HEPA">HEPATITIS C</option>
+																						<option value="AND" data-callback="AND">ALCOHOL AND LIVER DISEASE
+																						</option>
+																						<option value="hosis" data-callback="hosis">Liver Cirrhosis</option>
+																						<option value="GI" data-callback="GI">GI Cancers</option>
+																						<option value="ESOPHAGUS" data-callback="ESOPHAGUS">BARRETT’S ESOPHAGUS
+																						</option>
+																						<option value="CONSTIPATION" data-callback="CONSTIPATION">CONSTIPATION
+																						</option>
+																						<option value="DIARRHEA" data-callback="DIARRHEA">DIARRHEA</option>
+																						<option value="OBESITY" data-callback="OBESITY">OBESITY</option>
+																						<option data-callback="FATTY" value="FATTY">FATTY LIVER (NAFLD)
+																						</option>
+																						<option value="Fissures" data-callback="Fissures">Hemorrhoids and
+																							Fissures</option>
+																						<option value="INCONTINENCE" data-callback="INCONTINENCE">FECAL
+																							INCONTINENCE IN ADULTS</option>
+																						<option value="ABDOMINAL" data-callback="ABDOMINAL">ABDOMINAL PAIN
+																						</option>
+																						<option value="STONES" data-callback="STONES">GALL STONES</option>
+																						<option value="Pancreatic" data-callback="Pancreatic">Pancreatic
+																							Diseases</option>
+																						<option value="Stomach" data-callback="Stomach">Stomach / Peptic ulcers
+																						</option>
+																						<option data-callback="bacteria" value="bacteria">Gut bacteria</option>
+																						<option value="SWALLOWING" data-callback="SWALLOWING">SWALLOWING
+																							DISORDERS</option>
+																						<option value="TUMORS" data-callback="TUMORS">LIVER TUMORS</option>
+																						<option value="CANCER" data-callback="CANCER">COLON CANCER</option>
+													</select>
+													<select name="programmer" data-callback="storeState"
+														data-conv-question="Hello! How can I help you?"
+														name="first-question">
+														<option value="yes">Appointment</option>
+														<option value="no">Providers</option>
+														<option value="services">Our services</option>
+														<option value="Diseases">Diseases and Disorders</option>
+													</select>
+
+													<div data-conv-fork="programmer">
+														<div data-conv-case="yes">
+															<select name="thought"
+																data-conv-question="Please selects the doctors Name to proceed">
+																<!-- this below for appointment  -->
+																<option data-callback="HAMZA">HAMZA AZIZ </option>
+																<option value="CONNIE" data-callback="CONNIE">CONNIE
+																	DELOS REYES</option>
+																<option value="KATHRYN" data-callback="KATHRYN">KATHRYN
+																	BYCURA</option>
+																<option value="HOWARD" data-callback="HOWARD">HOWARD
+																	HAMAT</option>
+																<option value="GURU" data-callback="GURU">GURU N. REDDY
+																</option>
+																<option value="MOHAMED" data-callback="MOHAMED">MOHAMED
+																	MAHMOUD</option>
+																<option value="LAURA" data-callback="LAURA">LAURA
+																	PETERKIN</option>
+															</select>
+														</div>
+														<div data-conv-case="no">
+															<select name="thought"
+																data-conv-question="Have you ever thought about learning? Programming is fun!">
+																<!-- this is for providers -->
+																<option data-callback="HAMAT" value="HAMZA AZIZ"> HOWARD
+																	HAMAT | MD, Gastroenterology</option>
+																<option value="MAHMOUD" data-callback="MAHMOUD">MOHAMED
+																	MAHMOUD | M.D, Gastroenterology</option>
+																<option value="DELOS" data-callback="DELOS">CONNIE DELOS
+																	REYES | Nurse Practitioner, Nurse
+																	Practitioner-Family</option>
+																<option value="AZIZ" data-callback="AZIZ">HAMZA AZIZ MD,
+																	Gastroenterology</option>
+																<option value="BYCURA" data-callback="BYCURA">KATHRYN
+																	BYCURA | FNP-BC, Nurse Practitioner-Family</option>
+																<option value="PETERKIN" data-callback="PETERKIN">LAURA
+																	PETERKIN | PA-C, Physician Assistant-Medical
+																</option>
+																<option value="REDDY" data-callback="REDDY">GURU N.
+																	REDDY | MD, FACP, FACG, FASGE, AGAF,
+																	Gastroenterology</option>
+															</select>
+														</div>
+														<div data-conv-case="Diseases">
+															<select name="thought" data-conv-question="">
+																<!-- this is for diseases and disorder -->
+																<option data-callback="COLORECTAL" value="HAMZA AZIZ">
+																	COLORECTAL CANCER</option>
+																<option value="CONNIE" data-callback="IBS">IBS -
+																	IRRITABLE BOWEL SYNDROME</option>
+																<option value="KATHRYN" data-callback="CROHN">CROHN'S
+																	DISEASE</option>
+																<option value="HOWARD" data-callback="LIVER">LIVER
+																	DISEASES</option>
+																<option value="GURU" data-callback="GERD">GERD -
+																	GASTROESOPHAGEAL REFLUX DISEASE</option>
+																<option value="LAURA" data-callback="WOMEN">WOMEN'S GI
+																</option>
+															</select>
+														</div>
+														<!-- this is for Our services -->
+														<div data-conv-case="services">
+															<select data-conv-question="Our services">
+																<option value="Our" data-callback="Our">Our services
+																</option>
+																<option value="copy" data-callback="copy">Colonoscopy
+																</option>
+																<option value="EGD" data-callback="EGD"> EGD - Upper
+																	Endoscopy</option>
+																<option value="Flex" data-callback="Flex">Flexible
+																	Sigmoidoscopy - Flex Sig</option>
+																<option value="ERCP" data-callback="ERCP">ERCP & all
+																	associated procedures</option>
+																<option value="Biopsy" data-callback="Biopsy">Liver
+																	Biopsy (Ultrasound guided)</option>
+																<option value="FNA" data-callback="FNA">EUS with FNA
+																</option>
+																<option value="Hemorrhoid" data-callback="Hemorrhoid">
+																	Hemorrhoid Banding</option>
+																<option value="Capsule" data-callback="Capsule">Capsule
+																	Endoscopy </option>
+																<option value="BRAVO" data-callback="BRAVO">PH
+																	Monitoring - BRAVO Study</option>
+																<option value="Breath" data-callback="Breath">Breath
+																	Testing</option>
+																<option value="REMICADE" data-callback="REMICADE">
+																	REMICADE - INFLIXIMAB</option>
+																<option value="SCAN" data-callback="SCAN">FIBROSCAN
+																</option>
+																<option value="Studies" data-callback="Studies">
+																	Ultrasound Studies</option>
+																<option value="COLON" data-callback="COLON">COLON POLYPS
+																</option>
+																<option value="DISEASE" data-callback="DISEASE">CROHN’S
+																	DISEASE</option>
+																<option value="Colitis" data-callback="Colitis">
+																	Ulcerative Colitis</option>
+																<option value="HEPA" data-callback="HEPA">HEPATITIS C
+																</option>
+																<option value="AND" data-callback="AND">ALCOHOL AND
+																	LIVER DISEASE</option>
+																<option value="hosis" data-callback="hosis">Liver
+																	Cirrhosis</option>
+																<option value="GI" data-callback="GI">GI Cancers
+																</option>
+																<option value="ESOPHAGUS" data-callback="ESOPHAGUS">
+																	BARRETT’S ESOPHAGUS</option>
+																<option value="CONSTIPATION"
+																	data-callback="CONSTIPATION">CONSTIPATION</option>
+																<option value="DIARRHEA" data-callback="DIARRHEA">
+																	DIARRHEA</option>
+																<option value="OBESITY" data-callback="OBESITY">OBESITY
+																</option>
+																<option data-callback="FATTY" value="FATTY">FATTY LIVER
+																	(NAFLD) </option>
+																<option value="Fissures" data-callback="Fissures">
+																	Hemorrhoids and Fissures</option>
+																<option value="INCONTINENCE"
+																	data-callback="INCONTINENCE">FECAL INCONTINENCE IN
+																	ADULTS</option>
+																<option value="ABDOMINAL" data-callback="ABDOMINAL">
+																	ABDOMINAL PAIN</option>
+																<option value="STONES" data-callback="STONES">GALL
+																	STONES</option>
+																<option value="Pancreatic" data-callback="Pancreatic">
+																	Pancreatic Diseases</option>
+																<option value="Stomach" data-callback="Stomach">Stomach
+																	/ Peptic ulcers</option>
+																<option data-callback="bacteria" value="bacteria">Gut
+																	bacteria</option>
+																<option value="SWALLOWING" data-callback="SWALLOWING">
+																	SWALLOWING DISORDERS</option>
+																<option value="TUMORS" data-callback="TUMORS">LIVER
+																	TUMORS</option>
+																<option value="CANCER" data-callback="CANCER">COLON
+																	CANCER</option>
+															</select>
+															<select name="programmer" data-callback="storeState"
+																data-conv-question="Hello! How can I help you?"
+																name="first-question">
+																<option value="yes">Appointment</option>
+																<option value="no">Providers</option>
+																<option value="services">Our services</option>
+																<option value="Diseases">Diseases and Disorders</option>
+															</select>
+															<div data-conv-fork="programmer">
+																<div data-conv-case="yes">
+																	<select name="thought"
+																		data-conv-question="Please selects the doctors Name to proceed">
+																		<!-- this below for appointment  -->
+																		<option data-callback="HAMZA">HAMZA AZIZ
+																		</option>
+																		<option value="CONNIE" data-callback="CONNIE">
+																			CONNIE DELOS REYES</option>
+																		<option value="KATHRYN" data-callback="KATHRYN">
+																			KATHRYN BYCURA</option>
+																		<option value="HOWARD" data-callback="HOWARD">
+																			HOWARD HAMAT</option>
+																		<option value="GURU" data-callback="GURU">GURU
+																			N. REDDY</option>
+																		<option value="MOHAMED" data-callback="MOHAMED">
+																			MOHAMED MAHMOUD</option>
+																		<option value="LAURA" data-callback="LAURA">
+																			LAURA PETERKIN</option>
+																	</select>
+																</div>
+																<div data-conv-case="no">
+																	<select name="thought"
+																		data-conv-question="Have you ever thought about learning? Programming is fun!">
+																		<!-- this is for providers -->
+																		<option data-callback="HAMAT"
+																			value="HAMZA AZIZ"> HOWARD HAMAT | MD,
+																			Gastroenterology</option>
+																		<option value="MAHMOUD" data-callback="MAHMOUD">
+																			MOHAMED MAHMOUD | M.D, Gastroenterology
+																		</option>
+																		<option value="DELOS" data-callback="DELOS">
+																			CONNIE DELOS REYES | Nurse Practitioner,
+																			Nurse Practitioner-Family</option>
+																		<option value="AZIZ" data-callback="AZIZ">HAMZA
+																			AZIZ MD, Gastroenterology</option>
+																		<option value="BYCURA" data-callback="BYCURA">
+																			KATHRYN BYCURA | FNP-BC, Nurse
+																			Practitioner-Family</option>
+																		<option value="PETERKIN"
+																			data-callback="PETERKIN">LAURA PETERKIN |
+																			PA-C, Physician Assistant-Medical</option>
+																		<option value="REDDY" data-callback="REDDY">GURU
+																			N. REDDY | MD, FACP, FACG, FASGE, AGAF,
+																			Gastroenterology</option>
+																	</select>
+																</div>
+																<div data-conv-case="Diseases">
+																	<select name="thought" data-conv-question="">
+																		<!-- this is for diseases and disorder -->
+																		<option data-callback="COLORECTAL"
+																			value="HAMZA AZIZ">COLORECTAL CANCER
+																		</option>
+																		<option value="CONNIE" data-callback="IBS">IBS -
+																			IRRITABLE BOWEL SYNDROME</option>
+																		<option value="KATHRYN" data-callback="CROHN">
+																			CROHN'S DISEASE</option>
+																		<option value="HOWARD" data-callback="LIVER">
+																			LIVER DISEASES</option>
+																		<option value="GURU" data-callback="GERD">GERD -
+																			GASTROESOPHAGEAL REFLUX DISEASE</option>
+																		<option value="LAURA" data-callback="WOMEN">
+																			WOMEN'S GI</option>
+																	</select>
+																</div>
+																<!-- this is for Our services -->
+																<div data-conv-case="services">
+																	<select data-conv-question="Our services">
+																		<option value="Our" data-callback="Our">Our
+																			services</option>
+																		<option value="copy" data-callback="copy">
+																			Colonoscopy</option>
+																		<option value="EGD" data-callback="EGD"> EGD -
+																			Upper Endoscopy</option>
+																		<option value="Flex" data-callback="Flex">
+																			Flexible Sigmoidoscopy - Flex Sig</option>
+																		<option value="ERCP" data-callback="ERCP">ERCP &
+																			all associated procedures</option>
+																		<option value="Biopsy" data-callback="Biopsy">
+																			Liver Biopsy (Ultrasound guided)</option>
+																		<option value="FNA" data-callback="FNA">EUS with
+																			FNA</option>
+																		<option value="Hemorrhoid"
+																			data-callback="Hemorrhoid">Hemorrhoid
+																			Banding</option>
+																		<option value="Capsule" data-callback="Capsule">
+																			Capsule Endoscopy </option>
+																		<option value="BRAVO" data-callback="BRAVO">PH
+																			Monitoring - BRAVO Study</option>
+																		<option value="Breath" data-callback="Breath">
+																			Breath Testing</option>
+																		<option value="REMICADE"
+																			data-callback="REMICADE">REMICADE -
+																			INFLIXIMAB</option>
+																		<option value="SCAN" data-callback="SCAN">
+																			FIBROSCAN</option>
+																		<option value="Studies" data-callback="Studies">
+																			Ultrasound Studies</option>
+																		<option value="COLON" data-callback="COLON">
+																			COLON POLYPS</option>
+																		<option value="DISEASE" data-callback="DISEASE">
+																			CROHN’S DISEASE</option>
+																		<option value="Colitis" data-callback="Colitis">
+																			Ulcerative Colitis</option>
+																		<option value="HEPA" data-callback="HEPA">
+																			HEPATITIS C</option>
+																		<option value="AND" data-callback="AND">ALCOHOL
+																			AND LIVER DISEASE</option>
+																		<option value="hosis" data-callback="hosis">
+																			Liver Cirrhosis</option>
+																		<option value="GI" data-callback="GI">GI Cancers
+																		</option>
+																		<option value="ESOPHAGUS"
+																			data-callback="ESOPHAGUS">BARRETT’S
+																			ESOPHAGUS</option>
+																		<option value="CONSTIPATION"
+																			data-callback="CONSTIPATION">CONSTIPATION
+																		</option>
+																		<option value="DIARRHEA"
+																			data-callback="DIARRHEA">DIARRHEA</option>
+																		<option value="OBESITY" data-callback="OBESITY">
+																			OBESITY</option>
+																		<option data-callback="FATTY" value="FATTY">
+																			FATTY LIVER (NAFLD) </option>
+																		<option value="Fissures"
+																			data-callback="Fissures">Hemorrhoids and
+																			Fissures</option>
+																		<option value="INCONTINENCE"
+																			data-callback="INCONTINENCE">FECAL
+																			INCONTINENCE IN ADULTS</option>
+																		<option value="ABDOMINAL"
+																			data-callback="ABDOMINAL">ABDOMINAL PAIN
+																		</option>
+																		<option value="STONES" data-callback="STONES">
+																			GALL STONES</option>
+																		<option value="Pancreatic"
+																			data-callback="Pancreatic">Pancreatic
+																			Diseases</option>
+																		<option value="Stomach" data-callback="Stomach">
+																			Stomach / Peptic ulcers</option>
+																		<option data-callback="bacteria"
+																			value="bacteria">Gut bacteria</option>
+																		<option value="SWALLOWING"
+																			data-callback="SWALLOWING">SWALLOWING
+																			DISORDERS</option>
+																		<option value="TUMORS" data-callback="TUMORS">
+																			LIVER TUMORS </option>
+																		<option value="CANCER" data-callback="CANCER">
+																			COLON CANCER</option>
+																	</select>
+																<!-- this is for Our services -->
+																<div data-conv-case="services">
+																	<select data-conv-question="Our services">
+																		<option value="Our" data-callback="Our">Our
+																			services</option>
+																		<option value="copy" data-callback="copy">
+																			Colonoscopy</option>
+																		<option value="EGD" data-callback="EGD"> EGD -
+																			Upper Endoscopy</option>
+																		<option value="Flex" data-callback="Flex">
+																			Flexible Sigmoidoscopy - Flex Sig</option>
+																		<option value="ERCP" data-callback="ERCP">ERCP &
+																			all associated procedures</option>
+																		<option value="Biopsy" data-callback="Biopsy">
+																			Liver Biopsy (Ultrasound guided)</option>
+																		<option value="FNA" data-callback="FNA">EUS with
+																			FNA</option>
+																		<option value="Hemorrhoid"
+																			data-callback="Hemorrhoid">Hemorrhoid
+																			Banding</option>
+																		<option value="Capsule" data-callback="Capsule">
+																			Capsule Endoscopy </option>
+																		<option value="BRAVO" data-callback="BRAVO">PH
+																			Monitoring - BRAVO Study</option>
+																		<option value="Breath" data-callback="Breath">
+																			Breath Testing</option>
+																		<option value="REMICADE"
+																			data-callback="REMICADE">REMICADE -
+																			INFLIXIMAB</option>
+																		<option value="SCAN" data-callback="SCAN">
+																			FIBROSCAN</option>
+																		<option value="Studies" data-callback="Studies">
+																			Ultrasound Studies</option>
+																		<option value="COLON" data-callback="COLON">
+																			COLON POLYPS</option>
+																		<option value="DISEASE" data-callback="DISEASE">
+																			CROHN’S DISEASE</option>
+																		<option value="Colitis" data-callback="Colitis">
+																			Ulcerative Colitis</option>
+																		<option value="HEPA" data-callback="HEPA">
+																			HEPATITIS C</option>
+																		<option value="AND" data-callback="AND">ALCOHOL
+																			AND LIVER DISEASE</option>
+																		<option value="hosis" data-callback="hosis">
+																			Liver Cirrhosis</option>
+																		<option value="GI" data-callback="GI">GI Cancers
+																		</option>
+																		<option value="ESOPHAGUS"
+																			data-callback="ESOPHAGUS">BARRETT’S
+																			ESOPHAGUS</option>
+																		<option value="CONSTIPATION"
+																			data-callback="CONSTIPATION">CONSTIPATION
+																		</option>
+																		<option value="DIARRHEA"
+																			data-callback="DIARRHEA">DIARRHEA</option>
+																		<option value="OBESITY" data-callback="OBESITY">
+																			OBESITY</option>
+																		<option data-callback="FATTY" value="FATTY">
+																			FATTY LIVER (NAFLD) </option>
+																		<option value="Fissures"
+																			data-callback="Fissures">Hemorrhoids and
+																			Fissures</option>
+																		<option value="INCONTINENCE"
+																			data-callback="INCONTINENCE">FECAL
+																			INCONTINENCE IN ADULTS</option>
+																		<option value="ABDOMINAL"
+																			data-callback="ABDOMINAL">ABDOMINAL PAIN
+																		</option>
+																		<option value="STONES" data-callback="STONES">
+																			GALL STONES</option>
+																		<option value="Pancreatic"
+																			data-callback="Pancreatic">Pancreatic
+																			Diseases</option>
+																		<option value="Stomach" data-callback="Stomach">
+																			Stomach / Peptic ulcers</option>
+																		<option data-callback="bacteria"
+																			value="bacteria">Gut bacteria</option>
+																		<option value="SWALLOWING"
+																			data-callback="SWALLOWING">SWALLOWING
+																			DISORDERS</option>
+																		<option value="TUMORS" data-callback="TUMORS">
+																			LIVER TUMORS</option>
+																		<option value="CANCER" data-callback="CANCER">
+																			COLON CANCER</option>
+																	</select>
+																	
+																	<select name="programmer" data-callback="storeState"
+																		data-conv-question="Hello! How can I help you?"
+																		name="first-question">
+																		<option value="yes">Appointment</option>
+																		<option value="no">Providers</option>
+																		<option value="services">Our services</option>
+																		<option value="Diseases">Diseases and Disorders
+																		</option>
+																	</select>
+																	<div data-conv-fork="programmer">
+																		<div data-conv-case="yes">
+																			<select name="thought"
+																				data-conv-question="Please selects the doctors Name to proceed">
+																				<!-- this below for appointment  -->
+																				<option data-callback="HAMZA">HAMZA AZIZ
+																				</option>
+																				<option value="CONNIE"
+																					data-callback="CONNIE">CONNIE DELOS
+																					REYES</option>
+																				<option value="KATHRYN"
+																					data-callback="KATHRYN">KATHRYN
+																					BYCURA</option>
+																				<option value="HOWARD"
+																					data-callback="HOWARD">HOWARD HAMAT
+																				</option>
+																				<option value="GURU"
+																					data-callback="GURU">GURU N. REDDY
+																				</option>
+																				<option value="MOHAMED"
+																					data-callback="MOHAMED">MOHAMED
+																					MAHMOUD</option>
+																				<option value="LAURA"
+																					data-callback="LAURA">LAURA PETERKIN
+																				</option>
+																			</select>
+																		</div>
+																		<div data-conv-case="no">
+																			<select name="thought"
+																				data-conv-question="Have you ever thought about learning? Programming is fun!">
+																				<!-- this is for providers -->
+																				<option data-callback="HAMAT"
+																					value="HAMZA AZIZ"> HOWARD HAMAT |
+																					MD, Gastroenterology</option>
+																				<option value="MAHMOUD"
+																					data-callback="MAHMOUD">MOHAMED
+																					MAHMOUD | M.D, Gastroenterology
+																				</option>
+																				<option value="DELOS"
+																					data-callback="DELOS">CONNIE DELOS
+																					REYES | Nurse Practitioner, Nurse
+																					Practitioner-Family</option>
+																				<option value="AZIZ"
+																					data-callback="AZIZ">HAMZA AZIZ MD,
+																					Gastroenterology</option>
+																				<option value="BYCURA"
+																					data-callback="BYCURA">KATHRYN
+																					BYCURA | FNP-BC, Nurse
+																					Practitioner-Family</option>
+																				<option value="PETERKIN"
+																					data-callback="PETERKIN">LAURA
+																					PETERKIN | PA-C, Physician
+																					Assistant-Medical</option>
+																				<option value="REDDY"
+																					data-callback="REDDY">GURU N. REDDY
+																					| MD, FACP, FACG, FASGE, AGAF,
+																					Gastroenterology</option>
+																			</select>
+																		</div>
+																		<div data-conv-case="Diseases">
+																			<select name="thought"
+																				data-conv-question="">
+																				<!-- this is for diseases and disorder -->
+																				<option data-callback="COLORECTAL"
+																					value="HAMZA AZIZ">COLORECTAL CANCER
+																				</option>
+																				<option value="CONNIE"
+																					data-callback="IBS">IBS - IRRITABLE
+																					BOWEL SYNDROME</option>
+																				<option value="KATHRYN"
+																					data-callback="CROHN">CROHN'S
+																					DISEASE</option>
+																				<option value="HOWARD"
+																					data-callback="LIVER">LIVER DISEASES
+																				</option>
+																				<option value="GURU"
+																					data-callback="GERD">GERD -
+																					GASTROESOPHAGEAL REFLUX DISEASE
+																				</option>
+																				<option value="LAURA"
+																					data-callback="WOMEN">WOMEN'S GI
+																				</option>
+																			</select>
+																		</div>
+																		<!-- this is for Our services -->
+																		<div data-conv-case="services">
+																			<select data-conv-question="Our services">
+																				<option value="Our" data-callback="Our">
+																					Our services</option>
+																				<option value="copy"
+																					data-callback="copy">Colonoscopy
+																				</option>
+																				<option value="EGD" data-callback="EGD">
+																					EGD - Upper Endoscopy</option>
+																				<option value="Flex"
+																					data-callback="Flex">Flexible
+																					Sigmoidoscopy - Flex Sig</option>
+																				<option value="ERCP"
+																					data-callback="ERCP">ERCP & all
+																					associated procedures</option>
+																				<option value="Biopsy"
+																					data-callback="Biopsy">Liver Biopsy
+																					(Ultrasound guided)</option>
+																				<option value="FNA" data-callback="FNA">
+																					EUS with FNA</option>
+																				<option value="Hemorrhoid"
+																					data-callback="Hemorrhoid">
+																					Hemorrhoid Banding</option>
+																				<option value="Capsule"
+																					data-callback="Capsule">Capsule
+																					Endoscopy </option>
+																				<option value="BRAVO"
+																					data-callback="BRAVO">PH Monitoring
+																					- BRAVO Study</option>
+																				<option value="Breath"
+																					data-callback="Breath">Breath
+																					Testing</option>
+																				<option value="REMICADE"
+																					data-callback="REMICADE">REMICADE -
+																					INFLIXIMAB</option>
+																				<option value="SCAN"
+																					data-callback="SCAN">FIBROSCAN
+																				</option>
+																				<option value="Studies"
+																					data-callback="Studies">Ultrasound
+																					Studies</option>
+																				<option value="COLON"
+																					data-callback="COLON">COLON POLYPS
+																				</option>
+																				<option value="DISEASE"
+																					data-callback="DISEASE">CROHN’S
+																					DISEASE</option>
+																				<option value="Colitis"
+																					data-callback="Colitis">Ulcerative
+																					Colitis</option>
+																				<option value="HEPA"
+																					data-callback="HEPA">HEPATITIS C
+																				</option>
+																				<option value="AND" data-callback="AND">
+																					ALCOHOL AND LIVER DISEASE</option>
+																				<option value="hosis"
+																					data-callback="hosis">Liver
+																					Cirrhosis</option>
+																				<option value="GI" data-callback="GI">GI
+																					Cancers</option>
+																				<option value="ESOPHAGUS"
+																					data-callback="ESOPHAGUS">BARRETT’S
+																					ESOPHAGUS</option>
+																				<option value="CONSTIPATION"
+																					data-callback="CONSTIPATION">
+																					CONSTIPATION</option>
+																				<option value="DIARRHEA"
+																					data-callback="DIARRHEA">DIARRHEA
+																				</option>
+																				<option value="OBESITY"
+																					data-callback="OBESITY">OBESITY
+																				</option>
+																				<option data-callback="FATTY"
+																					value="FATTY">FATTY LIVER (NAFLD)
+																				</option>
+																				<option value="Fissures"
+																					data-callback="Fissures">Hemorrhoids
+																					and Fissures</option>
+																				<option value="INCONTINENCE"
+																					data-callback="INCONTINENCE">FECAL
+																					INCONTINENCE IN ADULTS</option>
+																				<option value="ABDOMINAL"
+																					data-callback="ABDOMINAL">ABDOMINAL
+																					PAIN</option>
+																				<option value="STONES"
+																					data-callback="STONES">GALL STONES
+																				</option>
+																				<option value="Pancreatic"
+																					data-callback="Pancreatic">
+																					Pancreatic Diseases</option>
+																				<option value="Stomach"
+																					data-callback="Stomach">Stomach /
+																					Peptic ulcers</option>
+																				<option data-callback="bacteria"
+																					value="bacteria">Gut bacteria
+																				</option>
+																				<option value="SWALLOWING"
+																					data-callback="SWALLOWING">
+																					SWALLOWING DISORDERS</option>
+																				<option value="TUMORS"
+																					data-callback="TUMORS">LIVER
+																					TUMORS</option>
+																				<option value="CANCER"
+																					data-callback="CANCER">COLON CANCER
+																				</option>
+																			</select>
+																			<select name="programmer"
+																				data-callback="storeState"
+																				data-conv-question="Hello! How can I help you?"
+																				name="first-question">
+																				<option value="yes">Appointment</option>
+																				<option value="no">Providers</option>
+																				<option value="services">Our services
+																				</option>
+																				<option value="Diseases">Diseases and
+																					Disorders</option>
+																			</select>
+																			<div data-conv-fork="programmer">
+																				<div data-conv-case="yes">
+																					<select name="thought"
+																						data-conv-question="Please selects the doctors Name to proceed">
+																						<!-- this below for appointment  -->
+																						<option data-callback="HAMZA">
+																							HAMZA AZIZ </option>
+																						<option value="CONNIE"
+																							data-callback="CONNIE">
+																							CONNIE DELOS REYES</option>
+																						<option value="KATHRYN"
+																							data-callback="KATHRYN">
+																							KATHRYN BYCURA</option>
+																						<option value="HOWARD"
+																							data-callback="HOWARD">
+																							HOWARD HAMAT</option>
+																						<option value="GURU"
+																							data-callback="GURU">GURU N.
+																							REDDY</option>
+																						<option value="MOHAMED"
+																							data-callback="MOHAMED">
+																							MOHAMED MAHMOUD</option>
+																						<option value="LAURA"
+																							data-callback="LAURA">LAURA
+																							PETERKIN</option>
+																					</select>
+																				</div>
+																				<div data-conv-case="no">
+																					<select name="thought"
+																						data-conv-question="Have you ever thought about learning? Programming is fun!">
+																						<!-- this is for providers -->
+																						<option data-callback="HAMAT"
+																							value="HAMZA AZIZ"> HOWARD
+																							HAMAT | MD, Gastroenterology
+																						</option>
+																						<option value="MAHMOUD"
+																							data-callback="MAHMOUD">
+																							MOHAMED MAHMOUD | M.D,
+																							Gastroenterology</option>
+																						<option value="DELOS"
+																							data-callback="DELOS">CONNIE
+																							DELOS REYES | Nurse
+																							Practitioner, Nurse
+																							Practitioner-Family</option>
+																						<option value="AZIZ"
+																							data-callback="AZIZ">HAMZA
+																							AZIZ MD, Gastroenterology
+																						</option>
+																						<option value="BYCURA"
+																							data-callback="BYCURA">
+																							KATHRYN BYCURA | FNP-BC,
+																							Nurse Practitioner-Family
+																						</option>
+																						<option value="PETERKIN"
+																							data-callback="PETERKIN">
+																							LAURA PETERKIN | PA-C,
+																							Physician Assistant-Medical
+																						</option>
+																						<option value="REDDY"
+																							data-callback="REDDY">GURU
+																							N. REDDY | MD, FACP, FACG,
+																							FASGE, AGAF,
+																							Gastroenterology</option>
+																					</select>
+																				</div>
+																				<div data-conv-case="Diseases">
+																					<select name="thought"
+																						data-conv-question="">
+																						<!-- this is for diseases and disorder -->
+																						<option
+																							data-callback="COLORECTAL"
+																							value="HAMZA AZIZ">
+																							COLORECTAL CANCER</option>
+																						<option value="CONNIE"
+																							data-callback="IBS">IBS -
+																							IRRITABLE BOWEL SYNDROME
+																						</option>
+																						<option value="KATHRYN"
+																							data-callback="CROHN">
+																							CROHN'S DISEASE</option>
+																						<option value="HOWARD"
+																							data-callback="LIVER">LIVER
+																							DISEASES</option>
+																						<option value="GURU"
+																							data-callback="GERD">GERD -
+																							GASTROESOPHAGEAL REFLUX
+																							DISEASE</option>
+																						<option value="LAURA"
+																							data-callback="WOMEN">
+																							WOMEN'S GI</option>
+																					</select>
+																				</div>
+																				<!-- this is for Our services -->
+																				<div data-conv-case="services">
+																					<select
+																						data-conv-question="Our services">
+																						<option value="Our"
+																							data-callback="Our">Our
+																							services</option>
+																						<option value="copy"
+																							data-callback="copy">
+																							Colonoscopy</option>
+																						<option value="EGD"
+																							data-callback="EGD"> EGD -
+																							Upper Endoscopy</option>
+																						<option value="Flex"
+																							data-callback="Flex">
+																							Flexible Sigmoidoscopy -
+																							Flex Sig</option>
+																						<option value="ERCP"
+																							data-callback="ERCP">ERCP &
+																							all associated procedures
+																						</option>
+																						<option value="Biopsy"
+																							data-callback="Biopsy">Liver
+																							Biopsy (Ultrasound guided)
+																						</option>
+																						<option value="FNA"
+																							data-callback="FNA">EUS with
+																							FNA</option>
+																						<option value="Hemorrhoid"
+																							data-callback="Hemorrhoid">
+																							Hemorrhoid Banding</option>
+																						<option value="Capsule"
+																							data-callback="Capsule">
+																							Capsule Endoscopy </option>
+																						<option value="BRAVO"
+																							data-callback="BRAVO">PH
+																							Monitoring - BRAVO Study
+																						</option>
+																						<option value="Breath"
+																							data-callback="Breath">
+																							Breath Testing</option>
+																						<option value="REMICADE"
+																							data-callback="REMICADE">
+																							REMICADE - INFLIXIMAB
+																						</option>
+																						<option value="SCAN"
+																							data-callback="SCAN">
+																							FIBROSCAN</option>
+																						<option value="Studies"
+																							data-callback="Studies">
+																							Ultrasound Studies</option>
+																						<option value="COLON"
+																							data-callback="COLON">COLON
+																							POLYPS</option>
+																						<option value="DISEASE"
+																							data-callback="DISEASE">
+																							CROHN’S DISEASE</option>
+																						<option value="Colitis"
+																							data-callback="Colitis">
+																							Ulcerative Colitis</option>
+																						<option value="HEPA"
+																							data-callback="HEPA">
+																							HEPATITIS C</option>
+																						<option value="AND"
+																							data-callback="AND">ALCOHOL
+																							AND LIVER DISEASE</option>
+																						<option value="hosis"
+																							data-callback="hosis">Liver
+																							Cirrhosis</option>
+																						<option value="GI"
+																							data-callback="GI">GI
+																							Cancers</option>
+																						<option value="ESOPHAGUS"
+																							data-callback="ESOPHAGUS">
+																							BARRETT’S ESOPHAGUS</option>
+																						<option value="CONSTIPATION"
+																							data-callback="CONSTIPATION">
+																							CONSTIPATION</option>
+																						<option value="DIARRHEA"
+																							data-callback="DIARRHEA">
+																							DIARRHEA</option>
+																						<option value="OBESITY"
+																							data-callback="OBESITY">
+																							OBESITY</option>
+																						<option data-callback="FATTY"
+																							value="FATTY">FATTY LIVER
+																							(NAFLD) </option>
+																						<option value="Fissures"
+																							data-callback="Fissures">
+																							Hemorrhoids and Fissures
+																						</option>
+																						<option value="INCONTINENCE"
+																							data-callback="INCONTINENCE">
+																							FECAL INCONTINENCE IN ADULTS
+																						</option>
+																						<option value="ABDOMINAL"
+																							data-callback="ABDOMINAL">
+																							ABDOMINAL PAIN</option>
+																						<option value="STONES"
+																							data-callback="STONES">GALL
+																							STONES</option>
+																						<option value="Pancreatic"
+																							data-callback="Pancreatic">
+																							Pancreatic Diseases</option>
+																						<option value="Stomach"
+																							data-callback="Stomach">
+																							Stomach / Peptic ulcers
+																						</option>
+																						<option data-callback="bacteria"
+																							value="bacteria">Gut
+																							bacteria</option>
+																						<option value="SWALLOWING"
+																							data-callback="SWALLOWING">
+																							SWALLOWING DISORDERS
+																						</option>
+																						<option value="TUMORS"
+																							data-callback="TUMORS">
+																							LIVER TUMORS </option>
+																						<option value="CANCER"
+																							data-callback="CANCER">COLON
+																							CANCER</option>
+																					</select>
+																					<select name="programmer"
+																						data-callback="storeState"
+																						data-conv-question="Hello! How can I help you?"
+																						name="first-question">
+																						<option value="yes">Appointment
+																						</option>
+																						<option value="no">Providers
+																						</option>
+																						<option value="services">Our
+																							services</option>
+																						<option value="Diseases">
+																							Diseases and Disorders
+																						</option>
+																					</select>
+																					<div data-conv-fork="programmer">
+																						<div data-conv-case="yes">
+																							<select name="thought"
+																								data-conv-question="Please selects the doctors Name to proceed">
+																								<!-- this below for appointment  -->
+																								<option
+																									data-callback="HAMZA">
+																									HAMZA AZIZ </option>
+																								<option value="CONNIE"
+																									data-callback="CONNIE">
+																									CONNIE DELOS REYES
+																								</option>
+																								<option value="KATHRYN"
+																									data-callback="KATHRYN">
+																									KATHRYN BYCURA
+																								</option>
+																								<option value="HOWARD"
+																									data-callback="HOWARD">
+																									HOWARD HAMAT
+																								</option>
+																								<option value="GURU"
+																									data-callback="GURU">
+																									GURU N. REDDY
+																								</option>
+																								<option value="MOHAMED"
+																									data-callback="MOHAMED">
+																									MOHAMED MAHMOUD
+																								</option>
+																								<option value="LAURA"
+																									data-callback="LAURA">
+																									LAURA PETERKIN
+																								</option>
+																							</select>
+																						</div>
+																						<div data-conv-case="no">
+																							<select name="thought"
+																								data-conv-question="Have you ever thought about learning? Programming is fun!">
+																								<!-- this is for providers -->
+																								<option
+																									data-callback="HAMAT"
+																									value="HAMZA AZIZ">
+																									HOWARD HAMAT | MD,
+																									Gastroenterology
+																								</option>
+																								<option value="MAHMOUD"
+																									data-callback="MAHMOUD">
+																									MOHAMED MAHMOUD |
+																									M.D,
+																									Gastroenterology
+																								</option>
+																								<option value="DELOS"
+																									data-callback="DELOS">
+																									CONNIE DELOS REYES |
+																									Nurse Practitioner,
+																									Nurse
+																									Practitioner-Family
+																								</option>
+																								<option value="AZIZ"
+																									data-callback="AZIZ">
+																									HAMZA AZIZ MD,
+																									Gastroenterology
+																								</option>
+																								<option value="BYCURA"
+																									data-callback="BYCURA">
+																									KATHRYN BYCURA |
+																									FNP-BC, Nurse
+																									Practitioner-Family
+																								</option>
+																								<option value="PETERKIN"
+																									data-callback="PETERKIN">
+																									LAURA PETERKIN |
+																									PA-C, Physician
+																									Assistant-Medical
+																								</option>
+																								<option value="REDDY"
+																									data-callback="REDDY">
+																									GURU N. REDDY | MD,
+																									FACP, FACG, FASGE,
+																									AGAF,
+																									Gastroenterology
+																								</option>
+																							</select>
+																						</div>
+																						<div data-conv-case="Diseases">
+																							<select name="thought"
+																								data-conv-question="">
+																								<!-- this is for diseases and disorder -->
+																								<option
+																									data-callback="COLORECTAL"
+																									value="HAMZA AZIZ">
+																									COLORECTAL CANCER
+																								</option>
+																								<option value="CONNIE"
+																									data-callback="IBS">
+																									IBS - IRRITABLE
+																									BOWEL SYNDROME
+																								</option>
+																								<option value="KATHRYN"
+																									data-callback="CROHN">
+																									CROHN'S DISEASE
+																								</option>
+																								<option value="HOWARD"
+																									data-callback="LIVER">
+																									LIVER DISEASES
+																								</option>
+																								<option value="GURU"
+																									data-callback="GERD">
+																									GERD -
+																									GASTROESOPHAGEAL
+																									REFLUX DISEASE
+																								</option>
+																								<option value="LAURA"
+																									data-callback="WOMEN">
+																									WOMEN'S GI</option>
+																							</select>
+																						</div>
+																						<!-- this is for Our services -->
+																						<div data-conv-case="services">
+																							<select
+																								data-conv-question="Our services">
+																								<option value="Our"
+																									data-callback="Our">
+																									Our services
+																								</option>
+																								<option value="copy"
+																									data-callback="copy">
+																									Colonoscopy</option>
+																								<option value="EGD"
+																									data-callback="EGD">
+																									EGD - Upper
+																									Endoscopy</option>
+																								<option value="Flex"
+																									data-callback="Flex">
+																									Flexible
+																									Sigmoidoscopy - Flex
+																									Sig</option>
+																								<option value="ERCP"
+																									data-callback="ERCP">
+																									ERCP & all
+																									associated
+																									procedures</option>
+																								<option value="Biopsy"
+																									data-callback="Biopsy">
+																									Liver Biopsy
+																									(Ultrasound guided)
+																								</option>
+																								<option value="FNA"
+																									data-callback="FNA">
+																									EUS with FNA
+																								</option>
+																								<option
+																									value="Hemorrhoid"
+																									data-callback="Hemorrhoid">
+																									Hemorrhoid Banding
+																								</option>
+																								<option value="Capsule"
+																									data-callback="Capsule">
+																									Capsule Endoscopy 
+																								</option>
+																								<option value="BRAVO"
+																									data-callback="BRAVO">
+																									PH Monitoring -
+																									BRAVO Study</option>
+																								<option value="Breath"
+																									data-callback="Breath">
+																									Breath Testing
+																								</option>
+																								<option value="REMICADE"
+																									data-callback="REMICADE">
+																									REMICADE -
+																									INFLIXIMAB</option>
+																								<option value="SCAN"
+																									data-callback="SCAN">
+																									FIBROSCAN</option>
+																								<option value="Studies"
+																									data-callback="Studies">
+																									Ultrasound Studies
+																								</option>
+																								<option value="COLON"
+																									data-callback="COLON">
+																									COLON POLYPS
+																								</option>
+																								<option value="DISEASE"
+																									data-callback="DISEASE">
+																									CROHN’S DISEASE
+																								</option>
+																								<option value="Colitis"
+																									data-callback="Colitis">
+																									Ulcerative Colitis
+																								</option>
+																								<option value="HEPA"
+																									data-callback="HEPA">
+																									HEPATITIS C</option>
+																								<option value="AND"
+																									data-callback="AND">
+																									ALCOHOL AND LIVER
+																									DISEASE</option>
+																								<option value="hosis"
+																									data-callback="hosis">
+																									Liver Cirrhosis
+																								</option>
+																								<option value="GI"
+																									data-callback="GI">
+																									GI Cancers</option>
+																								<option
+																									value="ESOPHAGUS"
+																									data-callback="ESOPHAGUS">
+																									BARRETT’S ESOPHAGUS
+																								</option>
+																								<option
+																									value="CONSTIPATION"
+																									data-callback="CONSTIPATION">
+																									CONSTIPATION
+																								</option>
+																								<option value="DIARRHEA"
+																									data-callback="DIARRHEA">
+																									DIARRHEA</option>
+																								<option value="OBESITY"
+																									data-callback="OBESITY">
+																									OBESITY</option>
+																								<option
+																									data-callback="FATTY"
+																									value="FATTY">FATTY
+																									LIVER (NAFLD)
+																								</option>
+																								<option value="Fissures"
+																									data-callback="Fissures">
+																									Hemorrhoids and
+																									Fissures</option>
+																								<option
+																									value="INCONTINENCE"
+																									data-callback="INCONTINENCE">
+																									FECAL INCONTINENCE
+																									IN ADULTS</option>
+																								<option
+																									value="ABDOMINAL"
+																									data-callback="ABDOMINAL">
+																									ABDOMINAL PAIN
+																								</option>
+																								<option value="STONES"
+																									data-callback="STONES">
+																									GALL STONES</option>
+																								<option
+																									value="Pancreatic"
+																									data-callback="Pancreatic">
+																									Pancreatic Diseases
+																								</option>
+																								<option value="Stomach"
+																									data-callback="Stomach">
+																									Stomach / Peptic
+																									ulcers</option>
+																								<option
+																									data-callback="bacteria"
+																									value="bacteria">Gut
+																									bacteria</option>
+																								<option
+																									value="SWALLOWING"
+																									data-callback="SWALLOWING">
+																									SWALLOWING DISORDERS
+																								</option>
+																								<option value="TUMORS"
+																									data-callback="TUMORS">
+																									LIVER TUMORS 
+																								</option>
+																								<option value="CANCER"
+																									data-callback="CANCER">
+																									COLON CANCER
+																								</option>
+																							</select>
+																							<select name="programmer"
+																								data-callback="storeState"
+																								data-conv-question="Hello! How can I help you?"
+																								name="first-question">
+																								<option value="yes">
+																									Appointment</option>
+																								<option value="no">
+																									Providers</option>
+																								<option
+																									value="services">Our
+																									services</option>
+																								<option
+																									value="Diseases">
+																									Diseases and
+																									Disorders</option>
+																							</select>
+																							<div
+																								data-conv-fork="programmer">
+																								<div
+																									data-conv-case="yes">
+																									<select
+																										name="thought"
+																										data-conv-question="Please selects the doctors Name to proceed">
+																										<!-- this below for appointment  -->
+																										<option
+																											data-callback="HAMZA">
+																											HAMZA AZIZ
+																										</option>
+																										<option
+																											value="CONNIE"
+																											data-callback="CONNIE">
+																											CONNIE DELOS
+																											REYES
+																										</option>
+																										<option
+																											value="KATHRYN"
+																											data-callback="KATHRYN">
+																											KATHRYN
+																											BYCURA
+																										</option>
+																										<option
+																											value="HOWARD"
+																											data-callback="HOWARD">
+																											HOWARD HAMAT
+																										</option>
+																										<option
+																											value="GURU"
+																											data-callback="GURU">
+																											GURU N.
+																											REDDY
+																										</option>
+																										<option
+																											value="MOHAMED"
+																											data-callback="MOHAMED">
+																											MOHAMED
+																											MAHMOUD
+																										</option>
+																										<option
+																											value="LAURA"
+																											data-callback="LAURA">
+																											LAURA
+																											PETERKIN
+																										</option>
+																									</select>
+																								</div>
+																								<div
+																									data-conv-case="no">
+																									<select
+																										name="thought"
+																										data-conv-question="Have you ever thought about learning? Programming is fun!">
+																										<!-- this is for providers -->
+																										<option
+																											data-callback="HAMAT"
+																											value="HAMZA AZIZ">
+																											HOWARD HAMAT
+																											| MD,
+																											Gastroenterology
+																										</option>
+																										<option
+																											value="MAHMOUD"
+																											data-callback="MAHMOUD">
+																											MOHAMED
+																											MAHMOUD |
+																											M.D,
+																											Gastroenterology
+																										</option>
+																										<option
+																											value="DELOS"
+																											data-callback="DELOS">
+																											CONNIE DELOS
+																											REYES |
+																											Nurse
+																											Practitioner,
+																											Nurse
+																											Practitioner-Family
+																										</option>
+																										<option
+																											value="AZIZ"
+																											data-callback="AZIZ">
+																											HAMZA AZIZ
+																											MD,
+																											Gastroenterology
+																										</option>
+																										<option
+																											value="BYCURA"
+																											data-callback="BYCURA">
+																											KATHRYN
+																											BYCURA |
+																											FNP-BC,
+																											Nurse
+																											Practitioner-Family
+																										</option>
+																										<option
+																											value="PETERKIN"
+																											data-callback="PETERKIN">
+																											LAURA
+																											PETERKIN |
+																											PA-C,
+																											Physician
+																											Assistant-Medical
+																										</option>
+																										<option
+																											value="REDDY"
+																											data-callback="REDDY">
+																											GURU N.
+																											REDDY | MD,
+																											FACP, FACG,
+																											FASGE, AGAF,
+																											Gastroenterology
+																										</option>
+																									</select>
+																								</div>
+																								<div
+																									data-conv-case="Diseases">
+																									<select
+																										name="thought"
+																										data-conv-question="">
+																										<!-- this is for diseases and disorder -->
+																										<option
+																											data-callback="COLORECTAL"
+																											value="HAMZA AZIZ">
+																											COLORECTAL
+																											CANCER
+																										</option>
+																										<option
+																											value="CONNIE"
+																											data-callback="IBS">
+																											IBS -
+																											IRRITABLE
+																											BOWEL
+																											SYNDROME
+																										</option>
+																										<option
+																											value="KATHRYN"
+																											data-callback="CROHN">
+																											CROHN'S
+																											DISEASE
+																										</option>
+																										<option
+																											value="HOWARD"
+																											data-callback="LIVER">
+																											LIVER
+																											DISEASES
+																										</option>
+																										<option
+																											value="GURU"
+																											data-callback="GERD">
+																											GERD -
+																											GASTROESOPHAGEAL
+																											REFLUX
+																											DISEASE
+																										</option>
+																										<option
+																											value="LAURA"
+																											data-callback="WOMEN">
+																											WOMEN'S GI
+																										</option>
+																									</select>
+																								</div>
+																								<!-- this is for Our services -->
+																								<div
+																									data-conv-case="services">
+																									<select
+																										data-conv-question="Our services">
+																										<option
+																											value="Our"
+																											data-callback="Our">
+																											Our services
+																										</option>
+																										<option
+																											value="copy"
+																											data-callback="copy">
+																											Colonoscopy
+																										</option>
+																										<option
+																											value="EGD"
+																											data-callback="EGD">
+																											EGD - Upper
+																											Endoscopy
+																										</option>
+																										<option
+																											value="Flex"
+																											data-callback="Flex">
+																											Flexible
+																											Sigmoidoscopy
+																											- Flex Sig
+																										</option>
+																										<option
+																											value="ERCP"
+																											data-callback="ERCP">
+																											ERCP & all
+																											associated
+																											procedures
+																										</option>
+																										<option
+																											value="Biopsy"
+																											data-callback="Biopsy">
+																											Liver Biopsy
+																											(Ultrasound
+																											guided)
+																										</option>
+																										<option
+																											value="FNA"
+																											data-callback="FNA">
+																											EUS with FNA
+																										</option>
+																										<option
+																											value="Hemorrhoid"
+																											data-callback="Hemorrhoid">
+																											Hemorrhoid
+																											Banding
+																										</option>
+																										<option
+																											value="Capsule"
+																											data-callback="Capsule">
+																											Capsule
+																											Endoscopy 
+																										</option>
+																										<option
+																											value="BRAVO"
+																											data-callback="BRAVO">
+																											PH
+																											Monitoring -
+																											BRAVO Study
+																										</option>
+																										<option
+																											value="Breath"
+																											data-callback="Breath">
+																											Breath
+																											Testing
+																										</option>
+																										<option
+																											value="REMICADE"
+																											data-callback="REMICADE">
+																											REMICADE -
+																											INFLIXIMAB
+																										</option>
+																										<option
+																											value="SCAN"
+																											data-callback="SCAN">
+																											FIBROSCAN
+																										</option>
+																										<option
+																											value="Studies"
+																											data-callback="Studies">
+																											Ultrasound
+																											Studies
+																										</option>
+																										<option
+																											value="COLON"
+																											data-callback="COLON">
+																											COLON POLYPS
+																										</option>
+																										<option
+																											value="DISEASE"
+																											data-callback="DISEASE">
+																											CROHN’S
+																											DISEASE
+																										</option>
+																										<option
+																											value="Colitis"
+																											data-callback="Colitis">
+																											Ulcerative
+																											Colitis
+																										</option>
+																										<option
+																											value="HEPA"
+																											data-callback="HEPA">
+																											HEPATITIS C
+																										</option>
+																										<option
+																											value="AND"
+																											data-callback="AND">
+																											ALCOHOL AND
+																											LIVER
+																											DISEASE
+																										</option>
+																										<option
+																											value="hosis"
+																											data-callback="hosis">
+																											Liver
+																											Cirrhosis
+																										</option>
+																										<option
+																											value="GI"
+																											data-callback="GI">
+																											GI Cancers
+																										</option>
+																										<option
+																											value="ESOPHAGUS"
+																											data-callback="ESOPHAGUS">
+																											BARRETT’S
+																											ESOPHAGUS
+																										</option>
+																										<option
+																											value="CONSTIPATION"
+																											data-callback="CONSTIPATION">
+																											CONSTIPATION
+																										</option>
+																										<option
+																											value="DIARRHEA"
+																											data-callback="DIARRHEA">
+																											DIARRHEA
+																										</option>
+																										<option
+																											value="OBESITY"
+																											data-callback="OBESITY">
+																											OBESITY
+																										</option>
+																										<option
+																											data-callback="FATTY"
+																											value="FATTY">
+																											FATTY LIVER
+																											(NAFLD)
+																										</option>
+																										<option
+																											value="Fissures"
+																											data-callback="Fissures">
+																											Hemorrhoids
+																											and Fissures
+																										</option>
+																										<option
+																											value="INCONTINENCE"
+																											data-callback="INCONTINENCE">
+																											FECAL
+																											INCONTINENCE
+																											IN ADULTS
+																										</option>
+																										<option
+																											value="ABDOMINAL"
+																											data-callback="ABDOMINAL">
+																											ABDOMINAL
+																											PAIN
+																										</option>
+																										<option
+																											value="STONES"
+																											data-callback="STONES">
+																											GALL STONES
+																										</option>
+																										<option
+																											value="Pancreatic"
+																											data-callback="Pancreatic">
+																											Pancreatic
+																											Diseases
+																										</option>
+																										<option
+																											value="Stomach"
+																											data-callback="Stomach">
+																											Stomach /
+																											Peptic
+																											ulcers
+																										</option>
+																										<option
+																											data-callback="bacteria"
+																											value="bacteria">
+																											Gut bacteria
+																										</option>
+																										<option
+																											value="SWALLOWING"
+																											data-callback="SWALLOWING">
+																											SWALLOWING
+																											DISORDERS
+																										</option>
+																										<option
+																											value="TUMORS"
+																											data-callback="TUMORS">
+																											LIVER
+																											TUMORS 
+																										</option>
+																										<option
+																											value="CANCER"
+																											data-callback="CANCER">
+																											COLON CANCER
+																										</option>
+																									</select>
+																									<select
+																										name="programmer"
+																										data-callback="storeState"
+																										data-conv-question="Hello! How can I help you?"
+																										name="first-question">
+																										<option
+																											value="yes">
+																											Appointment
+																										</option>
+																										<option
+																											value="no">
+																											Providers
+																										</option>
+																										<option
+																											value="services">
+																											Our services
+																										</option>
+																										<option
+																											value="Diseases">
+																											Diseases and
+																											Disorders
+																										</option>
+																									</select>
+																									<div
+																										data-conv-fork="programmer">
+																										<div
+																											data-conv-case="yes">
+																											<select
+																												name="thought"
+																												data-conv-question="Please selects the doctors Name to proceed">
+																												<!-- this below for appointment  -->
+																												<option
+																													data-callback="HAMZA">
+																													HAMZA
+																													AZIZ
+																												</option>
+																												<option
+																													value="CONNIE"
+																													data-callback="CONNIE">
+																													CONNIE
+																													DELOS
+																													REYES
+																												</option>
+																												<option
+																													value="KATHRYN"
+																													data-callback="KATHRYN">
+																													KATHRYN
+																													BYCURA
+																												</option>
+																												<option
+																													value="HOWARD"
+																													data-callback="HOWARD">
+																													HOWARD
+																													HAMAT
+																												</option>
+																												<option
+																													value="GURU"
+																													data-callback="GURU">
+																													GURU
+																													N.
+																													REDDY
+																												</option>
+																												<option
+																													value="MOHAMED"
+																													data-callback="MOHAMED">
+																													MOHAMED
+																													MAHMOUD
+																												</option>
+																												<option
+																													value="LAURA"
+																													data-callback="LAURA">
+																													LAURA
+																													PETERKIN
+																												</option>
+																											</select>
+																										</div>
+																										<div
+																											data-conv-case="no">
+																											<select
+																												name="thought"
+																												data-conv-question="Have you ever thought about learning? Programming is fun!">
+																												<!-- this is for providers -->
+																												<option
+																													data-callback="HAMAT"
+																													value="HAMZA AZIZ">
+																													HOWARD
+																													HAMAT
+																													|
+																													MD,
+																													Gastroenterology
+																												</option>
+																												<option
+																													value="MAHMOUD"
+																													data-callback="MAHMOUD">
+																													MOHAMED
+																													MAHMOUD
+																													|
+																													M.D,
+																													Gastroenterology
+																												</option>
+																												<option
+																													value="DELOS"
+																													data-callback="DELOS">
+																													CONNIE
+																													DELOS
+																													REYES
+																													|
+																													Nurse
+																													Practitioner,
+																													Nurse
+																													Practitioner-Family
+																												</option>
+																												<option
+																													value="AZIZ"
+																													data-callback="AZIZ">
+																													HAMZA
+																													AZIZ
+																													MD,
+																													Gastroenterology
+																												</option>
+																												<option
+																													value="BYCURA"
+																													data-callback="BYCURA">
+																													KATHRYN
+																													BYCURA
+																													|
+																													FNP-BC,
+																													Nurse
+																													Practitioner-Family
+																												</option>
+																												<option
+																													value="PETERKIN"
+																													data-callback="PETERKIN">
+																													LAURA
+																													PETERKIN
+																													|
+																													PA-C,
+																													Physician
+																													Assistant-Medical
+																												</option>
+																												<option
+																													value="REDDY"
+																													data-callback="REDDY">
+																													GURU
+																													N.
+																													REDDY
+																													|
+																													MD,
+																													FACP,
+																													FACG,
+																													FASGE,
+																													AGAF,
+																													Gastroenterology
+																												</option>
+																											</select>
+																										</div>
+																										<div
+																											data-conv-case="Diseases">
+																											<select
+																												name="thought"
+																												data-conv-question="">
+																												<!-- this is for diseases and disorder -->
+																												<option
+																													data-callback="COLORECTAL"
+																													value="HAMZA AZIZ">
+																													COLORECTAL
+																													CANCER
+																												</option>
+																												<option
+																													value="CONNIE"
+																													data-callback="IBS">
+																													IBS
+																													-
+																													IRRITABLE
+																													BOWEL
+																													SYNDROME
+																												</option>
+																												<option
+																													value="KATHRYN"
+																													data-callback="CROHN">
+																													CROHN'S
+																													DISEASE
+																												</option>
+																												<option
+																													value="HOWARD"
+																													data-callback="LIVER">
+																													LIVER
+																													DISEASES
+																												</option>
+																												<option
+																													value="GURU"
+																													data-callback="GERD">
+																													GERD
+																													-
+																													GASTROESOPHAGEAL
+																													REFLUX
+																													DISEASE
+																												</option>
+																												<option
+																													value="LAURA"
+																													data-callback="WOMEN">
+																													WOMEN'S
+																													GI
+																												</option>
+																											</select>
+																										</div>
+																										<!-- this is for Our services -->
+																										<div
+																											data-conv-case="services">
+																											<select
+																												data-conv-question="Our services">
+																												<option
+																													value="Our"
+																													data-callback="Our">
+																													Our
+																													services
+																												</option>
+																												<option
+																													value="copy"
+																													data-callback="copy">
+																													Colonoscopy
+																												</option>
+																												<option
+																													value="EGD"
+																													data-callback="EGD">
+																													EGD
+																													-
+																													Upper
+																													Endoscopy
+																												</option>
+																												<option
+																													value="Flex"
+																													data-callback="Flex">
+																													Flexible
+																													Sigmoidoscopy
+																													-
+																													Flex
+																													Sig
+																												</option>
+																												<option
+																													value="ERCP"
+																													data-callback="ERCP">
+																													ERCP
+																													&
+																													all
+																													associated
+																													procedures
+																												</option>
+																												<option
+																													value="Biopsy"
+																													data-callback="Biopsy">
+																													Liver
+																													Biopsy
+																													(Ultrasound
+																													guided)
+																												</option>
+																												<option
+																													value="FNA"
+																													data-callback="FNA">
+																													EUS
+																													with
+																													FNA
+																												</option>
+																												<option
+																													value="Hemorrhoid"
+																													data-callback="Hemorrhoid">
+																													Hemorrhoid
+																													Banding
+																												</option>
+																												<option
+																													value="Capsule"
+																													data-callback="Capsule">
+																													Capsule
+																													Endoscopy 
+																												</option>
+																												<option
+																													value="BRAVO"
+																													data-callback="BRAVO">
+																													PH
+																													Monitoring
+																													-
+																													BRAVO
+																													Study
+																												</option>
+																												<option
+																													value="Breath"
+																													data-callback="Breath">
+																													Breath
+																													Testing
+																												</option>
+																												<option
+																													value="REMICADE"
+																													data-callback="REMICADE">
+																													REMICADE
+																													-
+																													INFLIXIMAB
+																												</option>
+																												<option
+																													value="SCAN"
+																													data-callback="SCAN">
+																													FIBROSCAN
+																												</option>
+																												<option
+																													value="Studies"
+																													data-callback="Studies">
+																													Ultrasound
+																													Studies
+																												</option>
+																												<option
+																													value="COLON"
+																													data-callback="COLON">
+																													COLON
+																													POLYPS
+																												</option>
+																												<option
+																													value="DISEASE"
+																													data-callback="DISEASE">
+																													CROHN’S
+																													DISEASE
+																												</option>
+																												<option
+																													value="Colitis"
+																													data-callback="Colitis">
+																													Ulcerative
+																													Colitis
+																												</option>
+																												<option
+																													value="HEPA"
+																													data-callback="HEPA">
+																													HEPATITIS
+																													C
+																												</option>
+																												<option
+																													value="AND"
+																													data-callback="AND">
+																													ALCOHOL
+																													AND
+																													LIVER
+																													DISEASE
+																												</option>
+																												<option
+																													value="hosis"
+																													data-callback="hosis">
+																													Liver
+																													Cirrhosis
+																												</option>
+																												<option
+																													value="GI"
+																													data-callback="GI">
+																													GI
+																													Cancers
+																												</option>
+																												<option
+																													value="ESOPHAGUS"
+																													data-callback="ESOPHAGUS">
+																													BARRETT’S
+																													ESOPHAGUS
+																												</option>
+																												<option
+																													value="CONSTIPATION"
+																													data-callback="CONSTIPATION">
+																													CONSTIPATION
+																												</option>
+																												<option
+																													value="DIARRHEA"
+																													data-callback="DIARRHEA">
+																													DIARRHEA
+																												</option>
+																												<option
+																													value="OBESITY"
+																													data-callback="OBESITY">
+																													OBESITY
+																												</option>
+																												<option
+																													data-callback="FATTY"
+																													value="FATTY">
+																													FATTY
+																													LIVER
+																													(NAFLD)
+																												</option>
+																												<option
+																													value="Fissures"
+																													data-callback="Fissures">
+																													Hemorrhoids
+																													and
+																													Fissures
+																												</option>
+																												<option
+																													value="INCONTINENCE"
+																													data-callback="INCONTINENCE">
+																													FECAL
+																													INCONTINENCE
+																													IN
+																													ADULTS
+																												</option>
+																												<option
+																													value="ABDOMINAL"
+																													data-callback="ABDOMINAL">
+																													ABDOMINAL
+																													PAIN
+																												</option>
+																												<option
+																													value="STONES"
+																													data-callback="STONES">
+																													GALL
+																													STONES
+																												</option>
+																												<option
+																													value="Pancreatic"
+																													data-callback="Pancreatic">
+																													Pancreatic
+																													Diseases
+																												</option>
+																												<option
+																													value="Stomach"
+																													data-callback="Stomach">
+																													Stomach
+																													/
+																													Peptic
+																													ulcers
+																												</option>
+																												<option
+																													data-callback="bacteria"
+																													value="bacteria">
+																													Gut
+																													bacteria
+																												</option>
+																												<option
+																													value="SWALLOWING"
+																													data-callback="SWALLOWING">
+																													SWALLOWING
+																													DISORDERS
+																												</option>
+																												<option
+																													value="TUMORS"
+																													data-callback="TUMORS">
+																													LIVER
+																													TUMORS 
+																												</option>
+																												<option
+																													value="CANCER"
+																													data-callback="CANCER">
+																													COLON
+																													CANCER
+																												</option>
+																											</select>
+																											<select
+																												name="programmer"
+																												data-callback="storeState"
+																												data-conv-question="Hello! How can I help you?"
+																												name="first-question">
+																												<option
+																													value="yes">
+																													Appointment
+																												</option>
+																												<option
+																													value="no">
+																													Providers
+																												</option>
+																												<option
+																													value="services">
+																													Our
+																													services
+																												</option>
+																												<option
+																													value="Diseases">
+																													Diseases
+																													and
+																													Disorders
+																												</option>
+																											</select>
+																											<div
+																												data-conv-fork="programmer">
+																												<div
+																													data-conv-case="yes">
+																													<select
+																														name="thought"
+																														data-conv-question="Please selects the doctors Name to proceed">
+																														<!-- this below for appointment  -->
+																														<option
+																															data-callback="HAMZA">
+																															HAMZA
+																															AZIZ
+																														</option>
+																														<option
+																															value="CONNIE"
+																															data-callback="CONNIE">
+																															CONNIE
+																															DELOS
+																															REYES
+																														</option>
+																														<option
+																															value="KATHRYN"
+																															data-callback="KATHRYN">
+																															KATHRYN
+																															BYCURA
+																														</option>
+																														<option
+																															value="HOWARD"
+																															data-callback="HOWARD">
+																															HOWARD
+																															HAMAT
+																														</option>
+																														<option
+																															value="GURU"
+																															data-callback="GURU">
+																															GURU
+																															N.
+																															REDDY
+																														</option>
+																														<option
+																															value="MOHAMED"
+																															data-callback="MOHAMED">
+																															MOHAMED
+																															MAHMOUD
+																														</option>
+																														<option
+																															value="LAURA"
+																															data-callback="LAURA">
+																															LAURA
+																															PETERKIN
+																														</option>
+																													</select>
+																												</div>
+																												<div
+																													data-conv-case="no">
+																													<select
+																														name="thought"
+																														data-conv-question="Have you ever thought about learning? Programming is fun!">
+																														<!-- this is for providers -->
+																														<option
+																															data-callback="HAMAT"
+																															value="HAMZA AZIZ">
+																															HOWARD
+																															HAMAT
+																															|
+																															MD,
+																															Gastroenterology
+																														</option>
+																														<option
+																															value="MAHMOUD"
+																															data-callback="MAHMOUD">
+																															MOHAMED
+																															MAHMOUD
+																															|
+																															M.D,
+																															Gastroenterology
+																														</option>
+																														<option
+																															value="DELOS"
+																															data-callback="DELOS">
+																															CONNIE
+																															DELOS
+																															REYES
+																															|
+																															Nurse
+																															Practitioner,
+																															Nurse
+																															Practitioner-Family
+																														</option>
+																														<option
+																															value="AZIZ"
+																															data-callback="AZIZ">
+																															HAMZA
+																															AZIZ
+																															MD,
+																															Gastroenterology
+																														</option>
+																														<option
+																															value="BYCURA"
+																															data-callback="BYCURA">
+																															KATHRYN
+																															BYCURA
+																															|
+																															FNP-BC,
+																															Nurse
+																															Practitioner-Family
+																														</option>
+																														<option
+																															value="PETERKIN"
+																															data-callback="PETERKIN">
+																															LAURA
+																															PETERKIN
+																															|
+																															PA-C,
+																															Physician
+																															Assistant-Medical
+																														</option>
+																														<option
+																															value="REDDY"
+																															data-callback="REDDY">
+																															GURU
+																															N.
+																															REDDY
+																															|
+																															MD,
+																															FACP,
+																															FACG,
+																															FASGE,
+																															AGAF,
+																															Gastroenterology
+																														</option>
+																													</select>
+																												</div>
+																												<div
+																													data-conv-case="Diseases">
+																													<select
+																														name="thought"
+																														data-conv-question="">
+																														<!-- this is for diseases and disorder -->
+																														<option
+																															data-callback="COLORECTAL"
+																															value="HAMZA AZIZ">
+																															COLORECTAL
+																															CANCER
+																														</option>
+																														<option
+																															value="CONNIE"
+																															data-callback="IBS">
+																															IBS
+																															-
+																															IRRITABLE
+																															BOWEL
+																															SYNDROME
+																														</option>
+																														<option
+																															value="KATHRYN"
+																															data-callback="CROHN">
+																															CROHN'S
+																															DISEASE
+																														</option>
+																														<option
+																															value="HOWARD"
+																															data-callback="LIVER">
+																															LIVER
+																															DISEASES
+																														</option>
+																														<option
+																															value="GURU"
+																															data-callback="GERD">
+																															GERD
+																															-
+																															GASTROESOPHAGEAL
+																															REFLUX
+																															DISEASE
+																														</option>
+																														<option
+																															value="LAURA"
+																															data-callback="WOMEN">
+																															WOMEN'S
+																															GI
+																														</option>
+																													</select>
+																												</div>
+																												<!-- this is for Our services -->
+																												<div
+																													data-conv-case="services">
+																													<select
+																														data-conv-question="Our services">
+																														<option
+																															value="Our"
+																															data-callback="Our">
+																															Our
+																															services
+																														</option>
+																														<option
+																															value="copy"
+																															data-callback="copy">
+																															Colonoscopy
+																														</option>
+																														<option
+																															value="EGD"
+																															data-callback="EGD">
+																															EGD
+																															-
+																															Upper
+																															Endoscopy
+																														</option>
+																														<option
+																															value="Flex"
+																															data-callback="Flex">
+																															Flexible
+																															Sigmoidoscopy
+																															-
+																															Flex
+																															Sig
+																														</option>
+																														<option
+																															value="ERCP"
+																															data-callback="ERCP">
+																															ERCP
+																															&
+																															all
+																															associated
+																															procedures
+																														</option>
+																														<option
+																															value="Biopsy"
+																															data-callback="Biopsy">
+																															Liver
+																															Biopsy
+																															(Ultrasound
+																															guided)
+																														</option>
+																														<option
+																															value="FNA"
+																															data-callback="FNA">
+																															EUS
+																															with
+																															FNA
+																														</option>
+																														<option
+																															value="Hemorrhoid"
+																															data-callback="Hemorrhoid">
+																															Hemorrhoid
+																															Banding
+																														</option>
+																														<option
+																															value="Capsule"
+																															data-callback="Capsule">
+																															Capsule
+																															Endoscopy 
+																														</option>
+																														<option
+																															value="BRAVO"
+																															data-callback="BRAVO">
+																															PH
+																															Monitoring
+																															-
+																															BRAVO
+																															Study
+																														</option>
+																														<option
+																															value="Breath"
+																															data-callback="Breath">
+																															Breath
+																															Testing
+																														</option>
+																														<option
+																															value="REMICADE"
+																															data-callback="REMICADE">
+																															REMICADE
+																															-
+																															INFLIXIMAB
+																														</option>
+																														<option
+																															value="SCAN"
+																															data-callback="SCAN">
+																															FIBROSCAN
+																														</option>
+																														<option
+																															value="Studies"
+																															data-callback="Studies">
+																															Ultrasound
+																															Studies
+																														</option>
+																														<option
+																															value="COLON"
+																															data-callback="COLON">
+																															COLON
+																															POLYPS
+																														</option>
+																														<option
+																															value="DISEASE"
+																															data-callback="DISEASE">
+																															CROHN’S
+																															DISEASE
+																														</option>
+																														<option
+																															value="Colitis"
+																															data-callback="Colitis">
+																															Ulcerative
+																															Colitis
+																														</option>
+																														<option
+																															value="HEPA"
+																															data-callback="HEPA">
+																															HEPATITIS
+																															C
+																														</option>
+																														<option
+																															value="AND"
+																															data-callback="AND">
+																															ALCOHOL
+																															AND
+																															LIVER
+																															DISEASE
+																														</option>
+																														<option
+																															value="hosis"
+																															data-callback="hosis">
+																															Liver
+																															Cirrhosis
+																														</option>
+																														<option
+																															value="GI"
+																															data-callback="GI">
+																															GI
+																															Cancers
+																														</option>
+																														<option
+																															value="ESOPHAGUS"
+																															data-callback="ESOPHAGUS">
+																															BARRETT’S
+																															ESOPHAGUS
+																														</option>
+																														<option
+																															value="CONSTIPATION"
+																															data-callback="CONSTIPATION">
+																															CONSTIPATION
+																														</option>
+																														<option
+																															value="DIARRHEA"
+																															data-callback="DIARRHEA">
+																															DIARRHEA
+																														</option>
+																														<option
+																															value="OBESITY"
+																															data-callback="OBESITY">
+																															OBESITY
+																														</option>
+																														<option
+																															data-callback="FATTY"
+																															value="FATTY">
+																															FATTY
+																															LIVER
+																															(NAFLD)
+																														</option>
+																														<option
+																															value="Fissures"
+																															data-callback="Fissures">
+																															Hemorrhoids
+																															and
+																															Fissures
+																														</option>
+																														<option
+																															value="INCONTINENCE"
+																															data-callback="INCONTINENCE">
+																															FECAL
+																															INCONTINENCE
+																															IN
+																															ADULTS
+																														</option>
+																														<option
+																															value="ABDOMINAL"
+																															data-callback="ABDOMINAL">
+																															ABDOMINAL
+																															PAIN
+																														</option>
+																														<option
+																															value="STONES"
+																															data-callback="STONES">
+																															GALL
+																															STONES
+																														</option>
+																														<option
+																															value="Pancreatic"
+																															data-callback="Pancreatic">
+																															Pancreatic
+																															Diseases
+																														</option>
+																														<option
+																															value="Stomach"
+																															data-callback="Stomach">
+																															Stomach
+																															/
+																															Peptic
+																															ulcers
+																														</option>
+																														<option
+																															data-callback="bacteria"
+																															value="bacteria">
+																															Gut
+																															bacteria
+																														</option>
+																														<option
+																															value="SWALLOWING"
+																															data-callback="SWALLOWING">
+																															SWALLOWING
+																															DISORDERS
+																														</option>
+																														<option
+																															value="TUMORS"
+																															data-callback="TUMORS">
+																															LIVER
+																															TUMORS 
+																														</option>
+																														<option
+																															value="CANCER"
+																															data-callback="CANCER">
+																															COLON
+																															CANCER
+																														</option>
+																													</select>
+
+
+
+
+																												</div>
+																											</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script type="text/javascript" src="jquery-1.12.3.min.js"></script>
+	<script type="text/javascript" src="dist/autosize.min.js"></script>
+	<script type="text/javascript" src="dist/jquery.convform.js"></script>
+
+	<script>
+
+		//  for appointment redirect below links
+
+		function HAMZA(stateWrapper, ready) {
+			window.open("https://healow.com/apps/provider/hamza-aziz-2419370");
+			ready();
+		}
+		function CONNIE(stateWrapper, ready) {
+			window.open("https://healow.com/apps/provider/connie-delosreyes-1424184");
+			ready();
+		}
+		function KATHRYN(stateWrapper, ready) {
+			window.open("https://healow.com/apps/provider/kathryn-bycura-2108938");
+			ready();
+		}
+		function HOWARD(stateWrapper, ready) {
+			window.open("https://healow.com/apps/provider/howard-hamat-164920");
+			ready();
+		}
+		function GURU(stateWrapper, ready) {
+			window.open("https://healow.com/apps/provider/gurunath-reddy-164919");
+			ready();
+		}
+		function MOHAMED(stateWrapper, ready) {
+			window.open("https://healow.com/apps/provider/mohamed-mahmoud-2419372");
+			ready();
+		}
+		function LAURA(stateWrapper, ready) {
+			window.open("https://healow.com/apps/provider/laura-peterkin-164923 ");
+			ready();
+		}
+		// for Providers redirect below links
+
+		function HAMAT(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/howard.html");
+			ready();
+		}
+		function MAHMOUD(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/mohamed-mahmoud.html");
+			ready();
+		}
+		function DELOS(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/connie-delos-reyes.html");
+			ready();
+		}
+		function AZIZ(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/hamza-aziz.html");
+			ready();
+		}
+		function BYCURA(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/katie-bycura.html");
+			ready();
+		}
+		function PETERKIN(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/laura-peterkin.html");
+			ready();
+		}
+		function REDDY(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/guru.html");
+			ready();
+		}
+
+		// // for Our services redirect below links
+
+
+		function Our(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/service.html");
+			ready();
+		}
+		function copy(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/colonoscopy.html");
+			ready();
+		}
+		function EGD(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/Esophago-Gastro-Duodenoscopy-egd.html");
+			ready();
+		}
+		function Flex(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/flexible-sigmoidscopy.html");
+			ready();
+		}
+		function ERCP(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/Endoscopic-Retrograde-Cholangio-Pancreatography-ERCP.html");
+			ready();
+		}
+		function Biopsy(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/Liver-biopsy.html");
+			ready();
+		}
+		function FNA(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/Endoscopic-Ultrasound-eus.html");
+			ready();
+		}
+		function Hemorrhoid(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/Hemorrhoidal-Banding.html");
+			ready();
+		}
+		function Capsule(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/Capsule-Endoscopy.html");
+			ready();
+		}
+		function BRAVO(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/Esophageal-pH-monitoring.html");
+			ready();
+		}
+		function Breath(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/BreathTesting.html");
+			ready();
+		}
+		function REMICADE(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/Infusion-Services.html");
+			ready();
+		}
+		function SCAN(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/fibroscan-and-liver-disease.html");
+			ready();
+		}
+		function Studies(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/Ultra-sound-Treatment.html");
+			ready();
+		}
+		function COLON(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/colon-polyps");
+			ready();
+		}
+		function DISEASE(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/crohns-disease");
+			ready();
+		}
+		function Colitis(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/ulcerative-colitis");
+			ready();
+		}
+		function HEPA(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/hepatitis-C");
+			ready();
+		}
+		function AND(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/alcohol-and-liver-disease");
+			ready();
+		}
+		function hosis(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/liver-cirrhosis");
+			ready();
+		}
+		function GI(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/gi-cancers ");
+			ready();
+		}
+		function ESOPHAGUS(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/barretts-esophagus");
+			ready();
+		}
+		function CONSTIPATION(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/constipation");
+			ready();
+		}
+		function DIARRHEA(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/constipation");
+			ready();
+		}
+		function OBESITY(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/diarrhea");
+			ready();
+		}
+		function FATTY(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/obesity");
+			ready();
+		}
+		function Fissures(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/fatty-liver");
+			ready();
+		}
+		function INCONTINENCE(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/hemorrhoids-and-fissure");
+			ready();
+		}
+		function ABDOMINAL(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/fecal-incontinence ");
+			ready();
+		}
+		function STONES(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/abdominal-pain");
+			ready();
+		}
+		function Pancreatic(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/gall-stones");
+			ready();
+		}
+		function Stomach(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/pancreatic-diseases");
+			ready();
+		}
+		function bacteria(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/stomach-ulcer");
+			ready();
+		}
+		function SWALLOWING(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/swallowing-disorders");
+			ready();
+		}
+		function TUMORS(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/liver-TUMORS");
+			ready();
+		}
+		function CANCER(stateWrapper, ready) {
+			window.open("https://healow.com/apps/provider/laura-peterkin-164923 ");
+			ready();
+		}
+		// function LAURA(stateWrapper, ready) {
+		// 	window.open("https://www.txgidocs.com/colon-cancer-screening-and-surveillance");
+		// 	ready();
+		// }
+
+		// // for Diseases and Disorders redirect links 
+
+		function COLORECTAL(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/cancer-Colorectal-Cancer.html");
+			ready();
+		}
+		function IBS(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/irritable-bowel-syndrome.html");
+			ready();
+		}
+		function CROHN(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/Inflammatory-Bowel-Disease.html");
+			ready();
+		}
+		function LIVER(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/Liver-diseases.html");
+			ready();
+		}
+
+		function GERD(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/Gastroesophageal-reflux-disease-gerd.html");
+			ready();
+		}
+		function WOMEN(stateWrapper, ready) {
+			window.open("https://www.txgidocs.com/womenhealth.html ");
+			ready();
+		}
+		var rollbackTo = false;
+		var originalState = false;
+		function storeState(stateWrapper, ready) {
+			rollbackTo = stateWrapper.current;
+			console.log("storeState called: ", rollbackTo);
+			ready();
+		}
+		function rollback(stateWrapper, ready) {
+			console.log("rollback called: ", rollbackTo, originalState);
+			console.log("answers at the time of user input: ", stateWrapper.answers);
+			if (rollbackTo != false) {
+				if (originalState == false) {
+					originalState = stateWrapper.current.next;
+					console.log('stored original state');
+				}
+				stateWrapper.current.next = rollbackTo;
+				console.log('changed current.next to rollbackTo');
+			}
+			ready();
+		}
+		function restore(stateWrapper, ready) {
+			if (originalState != false) {
+				stateWrapper.current.next = originalState;
+				console.log('changed current.next to originalState');
+			}
+			ready();
+		}
+	</script>
+	<script>
+		jQuery(function ($) {
+			convForm = $('#chat').convform({ selectInputStyle: 'disable' });
+			console.log(convForm);
+		});
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+* {
+	font-family: 'Roboto', sans-serif;
+}
+html, body {
+	font-size: 16px;
+}
+
+section#demo {
+	background: #fbfbfb;
+    position: relative;
+    padding: 0;
+    min-height: 150vh;
+    transition: height 9999s;
+}
+.vertical-align {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+	width: 100%;
+}
+.card {
+	background: #fff;
+    box-shadow: 13px 13px 28px 2px rgba(0, 0, 0, 0.035);
+    padding: 7px 15px;
+}
+  /* div.conv-form-wrapper div#messages div.message.from:nth-child(4) ,  div.conv-form-wrapper div#messages div.message.from:nth-child(6) ,  div.conv-form-wrapper div#messages div.message.from:nth-child(8) , div.conv-form-wrapper div#messages div.message.from:nth-child(10) , div.conv-form-wrapper div#messages div.message.from:nth-child(12) , div.conv-form-wrapper div#messages div.message.from:nth-child(14) , div.conv-form-wrapper div#messages div.message.from:nth-child(16) , div.conv-form-wrapper div#messages div.message.from:nth-child(18) , div.conv-form-wrapper div#messages div.message.from:nth-child(20){
+	display: none;
+  } */
+  div.conv-form-wrapper div#messages div.message.to:nth-child(3) ,  div.conv-form-wrapper div#messages div.message.to:nth-child(7) ,  div.conv-form-wrapper div#messages div.message.to:nth-child(9) , div.conv-form-wrapper div#messages div.message.to:nth-child(11) , div.conv-form-wrapper div#messages div.message.to:nth-child(13) , div.conv-form-wrapper div#messages div.message.to:nth-child(15) , div.conv-form-wrapper div#messages div.message.to:nth-child(17) , div.conv-form-wrapper div#messages div.message.to:nth-child(19),  div.conv-form-wrapper div#messages div.message.to:nth-child(21),  div.conv-form-wrapper div#messages div.message.to:nth-child(23), div.conv-form-wrapper div#messages div.message.to:nth-child(25){
+	display: none;
+  }
+  div.conv-form-wrapper div#messages div.message.to:nth-child(3){
+	display: none;
+  }
